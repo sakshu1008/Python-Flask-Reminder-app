@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder App</title>
+</head>
+<body>
+    <h1>Reminder App</h1>
+    <form action="/add_reminder" method="POST">
+        <label for="title">Reminder:</label>
+        <input type="text" id="title" name="title" required>
+        <br><br>
+        <label for="datetime">Date and Time:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <br><br>
+        <input type="submit" value="Add Reminder">
+    </form>
+
+    <h2>Reminders</h2>
+    <ul>
+        {% for reminder in reminders %}
+            <li>{{ reminder.title }} - {{ reminder.date_time.strftime('%Y-%m-%d %H:%M') }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
